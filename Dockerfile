@@ -1,8 +1,22 @@
-FROM golang:1.15 AS gobase
+# == start with this image ==
+FROM golang:1.15-alpine AS gobase
 
-WORKDIR /go/src/app
+ENV SOPS_VERSION 3.6.1
 
-RUN go get -u go.mozilla.org/sops/v3/cmd/sops
-WORKDIR /go/src/app/src/go.mozilla.org/sops/
-RUN git checkout develop
+# I need make to compile stuff later on
+RUN apk add --update --no-cache make
+
+# Download the release; untar it; make it
+ADD https://github.com/mozilla/sops/archive/v3.6.1.tar.gz /go/src/app/
+RUN tar xzf /go/src/app/v${SOPS_VERSION}.tar.gz -C /go/src/app/
+WORKDIR /go/src/app/sops-${SOPS_VERSION}
 RUN make install
+
+# == new base for the final image ==
+FROM golang:1.15-alpine AS gofinal
+
+# Copy the binary we created above
+COPY --from=gobase /go/bin/sops /bin/sops
+
+# Set this as the entry point for the image
+ENTRYPOINT ["/bin/sops"]
