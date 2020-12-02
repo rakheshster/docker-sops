@@ -6,7 +6,7 @@ I wanted to try out [SOPS](https://github.com/mozilla/sops) on my Raspberry Pi a
 ## Bash function example
 ```bash
 function docker-sops { 
-        docker run -it --rm --name docker-sops -v $(pwd):/home -v $HOME/.gnupg:/root/.gnupg rakheshster/sops $@ 
+        docker run -it --rm --name docker-sops -v $(pwd):/home -v $HOME/.gnupg:/root/.gnupg rakheshster/sops $@ ;
 }
 ```
 
