@@ -1,5 +1,5 @@
 # docker-sops
-
+![Build & Push to DockerHub](https://github.com/rakheshster/docker-sops/workflows/Buildx%20&%20Push%20to%20DockerHub/badge.svg)
 ## What is this?
 I wanted to try out [SOPS](https://github.com/mozilla/sops) on my Raspberry Pi and there was no ARM version available. Thought I'd Dockerize it. I have a bash function in my `.bash_profile` to then run the container. 
 
