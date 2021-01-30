@@ -15,6 +15,9 @@ RUN make install
 # == new base for the final image ==
 FROM golang:1.15-alpine AS gofinal
 
+LABEL maintainer="Rakhesh Sasidharan"
+LABEL org.opencontainers.image.source=https://github.com/rakheshster/docker-sops
+
 # Copy the binary we created above
 COPY --from=gobase /go/bin/sops /bin/sops
 
