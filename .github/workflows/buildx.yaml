@@ -91,13 +91,13 @@ jobs:
         with:
           context: .
           file: ./Dockerfile
-          platforms: "${{ env.PLATFORMS }}"
+          platforms: ${{ env.PLATFORMS }}
           push: true
           tags: |
-            ${IMAGENAME}:${VERSION}
-            ${IMAGENAME}:latest
-            ghcr.io/${IMAGENAME}:${VERSION}
-            ghcr.io/${IMAGENAME}:latest
+            ${{ env.IMAGENAME }}:${{ env.VERSION }}
+            ${{ env.IMAGENAME }}:latest
+            ghcr.io/${{ env.IMAGENAME }}:${{ env.VERSION }}
+            ghcr.io/${{ env.IMAGENAME }}:latest
 
       # commenting this as out as I now build and push using an action.
       # - name: Docker Buildx (push)
