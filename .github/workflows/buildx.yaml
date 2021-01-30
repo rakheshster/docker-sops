@@ -18,8 +18,8 @@ on:
 
 # And what jobs it has
 jobs:
-  # Just one job here ... imaginatively called "buildx" (that's its id at least, it doesn't have a name coz I couldn't think of something)
-  buildx:
+  # Just one job here ... imaginatively called "Build" (that's its id at least, it doesn't have a name coz I couldn't think of something)
+  Build:
    # this job runs on Ubuntu
     runs-on: ubuntu-latest
     # these are its environment variables
