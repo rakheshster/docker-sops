@@ -95,8 +95,8 @@ jobs:
           push: true
           env:
             # read these variables from the JSON file I inputted in an earlier step and define for use in this step
-            IMAGENAME: "${{ fromJson(steps.read_buildinfo.outputs.packageJson).imagename }}"
-            VERSION: "${{ fromJson(steps.read_buildinfo.outputs.packageJson).version  }}"
+            IMAGENAME: ${{ fromJson(steps.read_buildinfo.outputs.packageJson).imagename }}
+            VERSION: ${{ fromJson(steps.read_buildinfo.outputs.packageJson).version  }}
           tags: |
             ${{ env.IMAGENAME }}:${{ env.VERSION }}
             ${{ env.IMAGENAME }}:latest
