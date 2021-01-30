@@ -91,7 +91,7 @@ jobs:
         with:
           context: .
           file: ./Dockerfile
-          platforms: ${PLATFORMS}
+          platforms: env.PLATFORMS
           push: true
           tags: |
             ${IMAGENAME}:${VERSION}
