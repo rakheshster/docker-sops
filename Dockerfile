@@ -7,7 +7,7 @@ ENV SOPS_VERSION 3.6.1
 RUN apk add --update --no-cache make
 
 # Download the release; untar it; make it
-ADD https://github.com/mozilla/sops/archive/v3.6.1.tar.gz /go/src/app/
+ADD https://github.com/mozilla/sops/archive/v${SOPS_VERSION}.tar.gz /go/src/app/
 RUN tar xzf /go/src/app/v${SOPS_VERSION}.tar.gz -C /go/src/app/
 WORKDIR /go/src/app/sops-${SOPS_VERSION}
 RUN make install
